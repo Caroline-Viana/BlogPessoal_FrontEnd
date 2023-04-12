@@ -1,0 +1,14 @@
+.home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #C28D55;
+}
+
+.opcao_item{
+    text-align: center;
+    color: #fff;
+    padding-bottom: 2rem;
+}
+
