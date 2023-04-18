@@ -51,10 +51,19 @@ function CadastroUsuario() {
     async function onSubmit(evento: ChangeEvent<HTMLFormElement>) {
         evento.preventDefault()
         if (confirmarSenha == user.senha) {
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
+            try {
+                await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+                alert('Usuário cadastrado com sucesso')
+            } catch (error) {
+                alert('Por favor, verifique os campos')
+            }
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            alert('As senhas não coincidem')
+            setConfirmarSenha('')
+            setUser({
+                ...user,
+                senha: ''
+            })
         }
     }
 
@@ -64,11 +73,11 @@ function CadastroUsuario() {
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
+                        <Typography variant='h3' gutterBottom style={{ color: '#D29642' }} component='h3' align='center' className='textos2'>Cadastrar</Typography>
 
                         <TextField
                             id='nome'
-                            label='nome'
+                            label='Nome Completo'
                             variant='outlined'
                             name='nome'
                             margin='normal'
@@ -78,7 +87,7 @@ function CadastroUsuario() {
 
                         <TextField
                             id='usuario'
-                            label='usuario'
+                            label='usuario@usuario.com'
                             variant='outlined'
                             name='usuario'
                             margin='normal'
@@ -88,7 +97,7 @@ function CadastroUsuario() {
 
                         <TextField
                             id='senha'
-                            label='senha'
+                            label='Digite a Senha'
                             variant='outlined'
                             name='senha'
                             margin='normal'
@@ -99,7 +108,7 @@ function CadastroUsuario() {
 
                         <TextField
                             id='confirmarSenha'
-                            label='confirmarSenha'
+                            label='Confirmar Senha'
                             variant='outlined'
                             name='confirmarSenha'
                             margin='normal'
@@ -110,7 +119,7 @@ function CadastroUsuario() {
 
                         <TextField
                             id='foto'
-                            label='foto'
+                            label='Link da Foto'
                             variant='outlined'
                             name='foto'
                             margin='normal'
@@ -120,11 +129,11 @@ function CadastroUsuario() {
 
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='btnCancelar'>
+                                <Button variant='contained' color='warning' className='btnCancelar'>
                                     Cancelar
                                 </Button>
                             </Link>
-                            <Button type='submit' variant='contained' color='primary'>
+                            <Button type='submit' variant='contained' style={{ backgroundColor: '#D29642' }}>
                                 Cadastrar
                             </Button>
                         </Box>

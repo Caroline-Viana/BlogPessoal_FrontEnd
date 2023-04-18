@@ -64,7 +64,7 @@ function Login() {
                         <Typography variant='h3' component='h3' className='opcao_titulo'>Entrar</Typography>
                         <TextField
                             id='usuario'
-                            label='usuário'
+                            label='usuario@usuario.com'
                             variant='outlined'
                             name='usuario'
                             margin='normal'
@@ -75,7 +75,7 @@ function Login() {
 
                         <TextField
                             id='senha'
-                            label='senha'
+                            label='Digite a Senha'
                             variant='outlined'
                             name='senha'
                             type='password'
