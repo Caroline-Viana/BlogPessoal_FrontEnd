@@ -1,3 +1,6 @@
+.bar{
+    box-shadow: none !important;
+}
 
 .navbar_toolbar{
     display: flex;
