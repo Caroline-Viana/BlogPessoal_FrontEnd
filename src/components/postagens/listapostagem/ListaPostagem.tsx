@@ -43,7 +43,7 @@ function ListaPostagem() {
                                 {post.titulo}
                             </Typography>
                             <Typography flexDirection={'column'} gutterBottom>
-                                {post.textro}
+                                {post.texto}
                             </Typography>
                             <Typography variant="body1" component="p" color="textSecondary">
                                 {post.tema?.descricao}

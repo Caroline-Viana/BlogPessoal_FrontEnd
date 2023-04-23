@@ -3,7 +3,7 @@ import Tema from "./Tema";
 interface Postagem {
     id: number,
     titulo: string,
-    textro: string,
+    texto: string,
     date: string,
     tema?: Tema | null
 }

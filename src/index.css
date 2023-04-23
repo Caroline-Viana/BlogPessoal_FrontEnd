@@ -84,3 +84,7 @@ select {
 	font-weight: inherit;
 	font-family: inherit;
 }
+
+body{
+	background-color: #F7F6F4;
+}
