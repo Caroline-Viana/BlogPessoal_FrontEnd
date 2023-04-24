@@ -34,7 +34,7 @@ function ListaTema() {
             {
                 temas.map(tema => (
                 <Box m={2} >
-                    <Card variant="outlined" style={{ border: '1px solid #B85851', width: '35%' }} >
+                    <Card variant="outlined" style={{ border: 'none', backgroundColor: 'hsla(39, 80%, 90%, 0.69)', width: '35%' }} className='card'>
                         <CardContent>
                             <Typography color="textSecondary" gutterBottom>
                                 Tema

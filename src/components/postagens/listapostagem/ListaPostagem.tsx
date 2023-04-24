@@ -5,6 +5,7 @@ import useLocalStorage from 'react-use-localstorage'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { busca } from '../../../services/Service'
+import './ListaPostgem.css'
 
 function ListaPostagem() {
     const [posts, setPosts] = useState<Postagem[]>([])
@@ -34,7 +35,7 @@ function ListaPostagem() {
             {
                 posts.map(post => (
                 <Box m={2} >
-                    <Card variant="outlined" style={{ border: '1px solid #B85851' }}>
+                    <Card variant="outlined" style={{ border: 'none', backgroundColor: 'hsla(39, 80%, 90%, 0.69)' }} className='card'>
                         <CardContent>
                             <Typography color="textSecondary" gutterBottom>
                                 Postagens
@@ -60,7 +61,7 @@ function ListaPostagem() {
                                 </Link>
                                 <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                                     <Box mx={1}>
-                                        <Button variant="contained" size='small' color="warning">
+                                        <Button variant="contained" size='small' color='inherit'>
                                             deletar
                                         </Button>
                                     </Box>

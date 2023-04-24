@@ -99,9 +99,10 @@ function CadastroPostagem() {
         navigate('/postagens')
     }
     return (
-        <Container maxWidth="sm" className="topo">
+        <Container maxWidth="sm" className="topo" style={{backgroundColor: '#FBF2DF'}}>
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >
+                    Cadastrar Postagem</Typography>
                 <TextField
                     id="titulo"
                     label="titulo"
@@ -126,7 +127,7 @@ function CadastroPostagem() {
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
+                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }
@@ -138,7 +139,7 @@ function CadastroPostagem() {
                         }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
+                    <Button type="submit" variant="contained" style={{backgroundColor: '#B85851'}}>
                         Finalizar
                     </Button>
                 </FormControl>
