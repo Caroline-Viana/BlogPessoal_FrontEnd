@@ -3,20 +3,24 @@ import './Home.css'
 import { Box, Button, Grid, ThemeProvider, Typography, createTheme } from '@mui/material'
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 function Home() {
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
-    
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
+
     useEffect(() => {
-      if (token == "") {
-          alert("Você precisa estar logado")
-          navigate("/login")
-  
-      }
-  }, [token])
+        if (token == "") {
+            alert("Você precisa estar logado")
+            navigate("/login")
+
+        }
+    }, [token])
     return (
         <>
             <Grid container className='home'>
@@ -33,7 +37,10 @@ function Home() {
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
-                        <Button variant="contained" color='secondary' style={{ borderRadius: "20px", backgroundColor: '#B85851' }}>Ver Postagens</Button>
+                        <Link to="/postagens">
+                            <Button variant="contained" color='secondary' style={{ borderRadius: "20px", backgroundColor: '#B85851' }}>Ver Postagens</Button>
+                        </Link>
+
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>
